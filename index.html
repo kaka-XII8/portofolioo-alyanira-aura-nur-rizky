@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alyanira Aura | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --bg-gradient-1: #e8d5f0;
+      --bg-gradient-2: #d4c5e8;
+      --bg-gradient-3: #c5d5f0;
+      --surface-color: #ffffff;
+      --text-color: #2d1b4e;
+      --primary-action: #8b5cf6;
+      --secondary-action: #a78bfa;
+    }
+    
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-action) transparent;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .font-body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #f5e6fa 0%, #e8d5f0 25%, #dccff5 50%, #d4e5f7 75%, #f0e6f5 100%);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .slide-in-left {
+      animation: slideInLeft 0.6s ease-out forwards;
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .progress-bar {
+      background: linear-gradient(90deg, #8b5cf6, #a78bfa, #c4b5fd);
+      border-radius: 9999px;
+      transition: width 1.5s ease-out;
+    }
+    
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+    }
+    
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.6;
+      animation: blobMove 8s ease-in-out infinite;
+    }
+    
+    @keyframes blobMove {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .timeline-line {
+      background: linear-gradient(180deg, #8b5cf6, #c4b5fd, #e9d5ff);
+    }
+    
+    .achievement-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    }
+    
+    .section-title {
+      background: linear-gradient(135deg, #5b21b6, #7c3aed, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body gradient-bg overflow-x-hidden">
+  <div class="h-full w-full overflow-auto"><!-- Decorative Blobs -->
+   <div class="blob w-96 h-96 bg-purple-300 top-0 left-0 -z-10" style="top: 5%; left: -10%;"></div>
+   <div class="blob w-80 h-80 bg-pink-200 -z-10" style="top: 30%; right: -5%; animation-delay: -2s;"></div>
+   <div class="blob w-72 h-72 bg-blue-200 -z-10" style="bottom: 20%; left: 5%; animation-delay: -4s;"></div><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16 md:h-20"><a href="#home" class="font-display text-xl md:text-2xl font-semibold text-purple-900" id="nav-name">Alyanira</a> <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8"><a href="#home" class="nav-link text-sm font-medium text-purple-900">Home</a> <a href="#about" class="nav-link text-sm font-medium text-purple-700 hover:text-purple-900">About</a> <a href="#skills" class="nav-link text-sm font-medium text-purple-700 hover:text-purple-900">Skills</a> <a href="#education" class="nav-link text-sm font-medium text-purple-700 hover:text-purple-900">Education</a> <a href="#achievement" class="nav-link text-sm font-medium text-purple-700 hover:text-purple-900">Achievement</a> <a href="#experience" class="nav-link text-sm font-medium text-purple-700 hover:text-purple-900">Experience</a> <a href="#contact" class="nav-link text-sm font-medium text-purple-700 hover:text-purple-900">Contact</a>
+      </div><!-- Mobile Menu Button --> <button id="menu-btn" class="lg:hidden p-2 rounded-xl hover:bg-white/50 transition-colors">
+       <svg class="w-6 h-6 text-purple-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div>
+   </nav><!-- Mobile Menu -->
+   <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-72 z-50 glass-card shadow-2xl">
+    <div class="p-6"><button id="close-menu" class="absolute top-4 right-4 p-2 rounded-xl hover:bg-purple-100 transition-colors">
+      <svg class="w-6 h-6 text-purple-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg></button>
+     <div class="mt-12 flex flex-col space-y-4"><a href="#home" class="mobile-nav-link text-lg font-medium text-purple-900 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">Home</a> <a href="#about" class="mobile-nav-link text-lg font-medium text-purple-700 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">About</a> <a href="#skills" class="mobile-nav-link text-lg font-medium text-purple-700 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">Skills</a> <a href="#education" class="mobile-nav-link text-lg font-medium text-purple-700 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">Education</a> <a href="#achievement" class="mobile-nav-link text-lg font-medium text-purple-700 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">Achievement</a> <a href="#experience" class="mobile-nav-link text-lg font-medium text-purple-700 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">Experience</a> <a href="#contact" class="mobile-nav-link text-lg font-medium text-purple-700 py-2 px-4 rounded-xl hover:bg-purple-100 transition-colors">Contact</a>
+     </div>
+    </div>
+   </div><!-- Hero Section -->
+   <section id="home" class="min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto w-full">
+     <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"><!-- Text Content -->
+      <div class="order-2 lg:order-1 text-center lg:text-left fade-in"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-6"> ✨ Welcome to my portfolio </span>
+       <h1 id="hero-name" class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-purple-900 leading-tight mb-4">Alyanira Aura</h1>
+       <p id="hero-subtitle" class="text-lg sm:text-xl text-purple-700 font-medium mb-4">12th Grade of Senior High School</p>
+       <p id="hero-intro" class="text-base sm:text-lg text-purple-600 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">A passionate student with a keen interest in social sciences and communication, dedicated to making a positive impact through leadership and creative endeavors.</p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"><a href="#about" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-semibold rounded-2xl hover:shadow-lg hover:shadow-purple-300 transition-all duration-300 hover:-translate-y-1"> View Portfolio </a> <a href="#contact" class="px-8 py-4 glass-card text-purple-700 font-semibold rounded-2xl hover:bg-white transition-all duration-300 hover:-translate-y-1"> Contact Me </a>
+       </div>
+      </div><!-- Portrait Card -->
+      <div class="order-1 lg:order-2 flex justify-center fade-in stagger-2">
+       <div class="relative"><!-- Decorative Elements -->
+        <div class="absolute -top-8 -left-8 w-24 h-24 bg-purple-200 rounded-full opacity-60 float-animation"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-pink-200 rounded-full opacity-50 float-animation" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 -right-12 w-16 h-16 bg-blue-200 rounded-full opacity-60 float-animation" style="animation-delay: -1.5s;"></div><!-- Main Portrait Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative z-10 hover-lift">
+         <div class="w-56 h-72 sm:w-72 sm:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-200 via-pink-100 to-blue-200 flex items-center justify-center"><img src="https://i.ibb.co.com/rK2GWVJT/alya.jpg" alt="Alyanira Aura" loading="lazy" class="w-full h-full object-cover" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #c4b5fd 0%, #f0abfc 100%)'; this.alt='Profile photo unavailable';">
+         </div><!-- Name Badge -->
+         <div class="mt-6 text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full"><span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> <span class="text-sm font-medium text-purple-700">Available for opportunities</span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Scroll Indicator -->
+     <div class="hidden lg:flex justify-center mt-12"><a href="#about" class="flex flex-col items-center text-purple-500 hover:text-purple-700 transition-colors"> <span class="text-sm mb-2">Scroll to explore</span>
+       <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+       </svg></a>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12 sm:mb-16"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-4"> Get to know me </span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold section-title">About Me</h2>
+     </div>
+     <div class="grid lg:grid-cols-3 gap-6 lg:gap-8"><!-- Main About Card -->
+      <div class="lg:col-span-2 glass-card rounded-3xl p-6 sm:p-8 hover-lift">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
+         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+         </svg>
+        </div>
+        <h3 class="font-display text-xl sm:text-2xl font-semibold text-purple-900">Who I Am</h3>
+       </div>
+       <p id="about-description" class="text-purple-700 leading-relaxed text-base sm:text-lg mb-6">Hi there! I'm Alyanira Aura, a dedicated 12th-grade student at SMAN 1 Subang with a deep passion for social sciences and communication. I believe in the power of connection and meaningful dialogue to create positive change in our communities. My journey has been shaped by diverse experiences in student organizations and committees, where I've developed strong leadership and interpersonal skills.</p>
+       <div class="flex flex-wrap gap-3"><span class="px-4 py-2 bg-purple-100 rounded-full text-sm font-medium text-purple-700">🎯 Goal-oriented</span> <span class="px-4 py-2 bg-pink-100 rounded-full text-sm font-medium text-pink-700">💬 Communicative</span> <span class="px-4 py-2 bg-blue-100 rounded-full text-sm font-medium text-blue-700">🤝 Team Player</span> <span class="px-4 py-2 bg-indigo-100 rounded-full text-sm font-medium text-indigo-700">📚 Eager Learner</span>
+       </div>
+      </div><!-- Quick Facts Card -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8 hover-lift">
+       <h3 class="font-display text-xl font-semibold text-purple-900 mb-6">Quick Facts</h3>
+       <div class="space-y-4">
+        <div class="flex items-center gap-4">
+         <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">
+          📍
+         </div>
+         <div>
+          <p class="text-sm text-purple-500">Location</p>
+          <p class="font-medium text-purple-900">Subang, Indonesia</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center text-xl">
+          🎓
+         </div>
+         <div>
+          <p class="text-sm text-purple-500">Grade</p>
+          <p class="font-medium text-purple-900">12th Grade</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl">
+          📖
+         </div>
+         <div>
+          <p class="text-sm text-purple-500">Focus</p>
+          <p class="font-medium text-purple-900">Social Sciences</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">
+          🌟
+         </div>
+         <div>
+          <p class="text-sm text-purple-500">Passion</p>
+          <p class="font-medium text-purple-900">Communication</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Hobbies Section -->
+     <div class="mt-8 glass-card rounded-3xl p-6 sm:p-8 hover-lift">
+      <h3 class="font-display text-xl sm:text-2xl font-semibold text-purple-900 mb-6 text-center">My Hobbies &amp; Interests</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+       <div class="flex flex-col items-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl hover:scale-105 transition-transform"><span class="text-3xl mb-2">🎬</span> <span class="text-sm font-medium text-purple-700 text-center">Watching Films</span>
+       </div>
+       <div class="flex flex-col items-center p-4 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl hover:scale-105 transition-transform"><span class="text-3xl mb-2">🎵</span> <span class="text-sm font-medium text-purple-700 text-center">Music</span>
+       </div>
+       <div class="flex flex-col items-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl hover:scale-105 transition-transform"><span class="text-3xl mb-2">📚</span> <span class="text-sm font-medium text-purple-700 text-center">Reading</span>
+       </div>
+       <div class="flex flex-col items-center p-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl hover:scale-105 transition-transform"><span class="text-3xl mb-2">✍️</span> <span class="text-sm font-medium text-purple-700 text-center">Writing</span>
+       </div>
+       <div class="flex flex-col items-center p-4 bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl hover:scale-105 transition-transform"><span class="text-3xl mb-2">🎨</span> <span class="text-sm font-medium text-purple-700 text-center">Art</span>
+       </div>
+       <div class="flex flex-col items-center p-4 bg-gradient-to-br from-fuchsia-50 to-pink-50 rounded-2xl hover:scale-105 transition-transform"><span class="text-3xl mb-2">📷</span> <span class="text-sm font-medium text-purple-700 text-center">Photography</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section id="skills" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12 sm:mb-16"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-4"> What I can do </span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Skills</h2>
+     </div>
+     <div class="max-w-2xl mx-auto"><!-- Soft Skills -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8 hover-lift">
+       <div class="flex items-center gap-3 mb-8">
+        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-400 rounded-xl flex items-center justify-center">
+         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+         </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-purple-900">My Strengths</h3>
+       </div>
+       <div class="space-y-6" id="soft-skills">
+        <div class="skill-item">
+         <div class="flex justify-between mb-2"><span class="font-medium text-purple-800">Public Speaking</span> <span class="text-purple-600">88%</span>
+         </div>
+         <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+          <div class="progress-bar h-full" style="width: 0%" data-width="88%"></div>
+         </div>
+        </div>
+        <div class="skill-item">
+         <div class="flex justify-between mb-2"><span class="font-medium text-purple-800">Leadership</span> <span class="text-purple-600">85%</span>
+         </div>
+         <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+          <div class="progress-bar h-full" style="width: 0%" data-width="85%"></div>
+         </div>
+        </div>
+        <div class="skill-item">
+         <div class="flex justify-between mb-2"><span class="font-medium text-purple-800">Teamwork</span> <span class="text-purple-600">92%</span>
+         </div>
+         <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+          <div class="progress-bar h-full" style="width: 0%" data-width="92%"></div>
+         </div>
+        </div>
+        <div class="skill-item">
+         <div class="flex justify-between mb-2"><span class="font-medium text-purple-800">Problem Solving</span> <span class="text-purple-600">78%</span>
+         </div>
+         <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+          <div class="progress-bar h-full" style="width: 0%" data-width="78%"></div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Education Section -->
+   <section id="education" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12 sm:mb-16"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-4"> My learning journey </span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Education</h2>
+     </div>
+     <div class="relative"><!-- Timeline Line -->
+      <div class="absolute left-4 md:left-1/2 md:-translate-x-0.5 top-0 bottom-0 w-1 timeline-line rounded-full hidden sm:block"></div>
+      <div class="space-y-8"><!-- Senior High School -->
+       <div class="relative flex flex-col md:flex-row md:justify-center">
+        <div class="md:w-5/12 md:pr-12 md:text-right mb-4 md:mb-0">
+         <div class="glass-card rounded-2xl p-6 hover-lift inline-block md:ml-auto">
+          <div class="flex items-center gap-3 md:flex-row-reverse mb-4">
+           <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-400 rounded-xl flex items-center justify-center text-2xl">
+            🎓
+           </div>
+           <div class="md:text-right"><span class="text-sm font-medium text-purple-500">2022 - Present</span>
+            <h3 class="font-display text-lg font-semibold text-purple-900">Senior High School</h3>
+           </div>
+          </div>
+          <p class="font-semibold text-purple-800 mb-1">SMAN 1 Subang</p>
+          <p class="text-purple-600 text-sm">Social Sciences Major</p>
+          <p class="text-purple-500 text-sm mt-2">Currently in 12th Grade</p>
+         </div>
+        </div>
+        <div class="hidden md:flex items-center justify-center w-10">
+         <div class="w-5 h-5 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+        </div>
+        <div class="md:w-5/12 md:pl-12"></div>
+       </div><!-- Junior High School -->
+       <div class="relative flex flex-col md:flex-row md:justify-center">
+        <div class="md:w-5/12 md:pr-12"></div>
+        <div class="hidden md:flex items-center justify-center w-10">
+         <div class="w-5 h-5 bg-pink-400 rounded-full border-4 border-white shadow-lg z-10"></div>
+        </div>
+        <div class="md:w-5/12 md:pl-12">
+         <div class="glass-card rounded-2xl p-6 hover-lift">
+          <div class="flex items-center gap-3 mb-4">
+           <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-300 rounded-xl flex items-center justify-center text-2xl">
+            📚
+           </div>
+           <div><span class="text-sm font-medium text-purple-500">2019 - 2022</span>
+            <h3 class="font-display text-lg font-semibold text-purple-900">Junior High School</h3>
+           </div>
+          </div>
+          <p class="font-semibold text-purple-800 mb-1">SMPN 1 Subang</p>
+          <p class="text-purple-600 text-sm">General Education</p>
+          <p class="text-purple-500 text-sm mt-2">Graduated with honors</p>
+         </div>
+        </div>
+       </div><!-- Elementary School -->
+       <div class="relative flex flex-col md:flex-row md:justify-center">
+        <div class="md:w-5/12 md:pr-12 md:text-right">
+         <div class="glass-card rounded-2xl p-6 hover-lift inline-block md:ml-auto">
+          <div class="flex items-center gap-3 md:flex-row-reverse mb-4">
+           <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-xl flex items-center justify-center text-2xl">
+            ✏️
+           </div>
+           <div class="md:text-right"><span class="text-sm font-medium text-purple-500">2013 - 2019</span>
+            <h3 class="font-display text-lg font-semibold text-purple-900">Elementary School</h3>
+           </div>
+          </div>
+          <p class="font-semibold text-purple-800 mb-1">SDN Bulansari</p>
+          <p class="text-purple-600 text-sm">Primary Education</p>
+          <p class="text-purple-500 text-sm mt-2">Foundation years of learning</p>
+         </div>
+        </div>
+        <div class="hidden md:flex items-center justify-center w-10">
+         <div class="w-5 h-5 bg-blue-400 rounded-full border-4 border-white shadow-lg z-10"></div>
+        </div>
+        <div class="md:w-5/12 md:pl-12"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Experience Section -->
+   <section id="achievement" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12 sm:mb-16"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-4"> My experience so far </span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Experience</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Experience 1 -->
+      <div class="achievement-card glass-card rounded-2xl p-6 hover-lift">
+       <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-400 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+        🏛️
+       </div><span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium mb-3">Leadership</span>
+       <h3 class="font-display text-lg font-semibold text-purple-900 mb-2">OSIS (SMP) - 3 Years</h3>
+       <p class="text-purple-600 text-sm">Active member of student council for three years during junior high school</p>
+       <p class="text-purple-400 text-xs mt-3">2019 - 2022</p>
+      </div><!-- Experience 2 -->
+      <div class="achievement-card glass-card rounded-2xl p-6 hover-lift">
+       <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-400 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+        🏥
+       </div><span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium mb-3">Organization</span>
+       <h3 class="font-display text-lg font-semibold text-purple-900 mb-2">Vice Chairman PMR (SMP)</h3>
+       <p class="text-purple-600 text-sm">Vice chairman of Red Crescent Youth organization at junior high school</p>
+       <p class="text-purple-400 text-xs mt-3">2021 - 2022</p>
+      </div><!-- Experience 3 -->
+      <div class="achievement-card glass-card rounded-2xl p-6 hover-lift">
+       <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+        🎊
+       </div><span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium mb-3">Event</span>
+       <h3 class="font-display text-lg font-semibold text-purple-900 mb-2">Clasmeet Class Coordinator (SMP)</h3>
+       <p class="text-purple-600 text-sm">Project coordinator for Clasmeet class meeting competition at junior high school</p>
+       <p class="text-purple-400 text-xs mt-3">2021</p>
+      </div><!-- Experience 4 -->
+      <div class="achievement-card glass-card rounded-2xl p-6 hover-lift lg:col-span-2">
+       <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
+        🏆
+       </div><span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium mb-3">Champion</span>
+       <h3 class="font-display text-lg font-semibold text-purple-900 mb-2">1st Place - Subang Innovation Festival 2025</h3>
+       <p class="text-purple-600 text-sm">Champion of Subang Innovation Festival 2025, representing innovative ideas and creative solutions</p>
+       <p class="text-purple-400 text-xs mt-3">2025</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Committee Experience Section -->
+   <section id="experience" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12 sm:mb-16"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-4"> Events I've organized </span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Committee Experience</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"><!-- Committee Items -->
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-purple-200 transition-colors">
+        �������
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Class Meeting 2024</h4>
+        <p class="text-purple-500 text-xs">Event Coordinator</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-pink-200 transition-colors">
+        🎊
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Independence Day Celebration</h4>
+        <p class="text-purple-500 text-xs">Documentation Team</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-blue-200 transition-colors">
+        🎓
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Student Orientation 2023</h4>
+        <p class="text-purple-500 text-xs">Mentor &amp; Guide</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-indigo-200 transition-colors">
+        🏃
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">School Sports Week</h4>
+        <p class="text-purple-500 text-xs">Registration Team</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-violet-200 transition-colors">
+        🎪
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">School Festival 2023</h4>
+        <p class="text-purple-500 text-xs">Public Relations</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-rose-200 transition-colors">
+        🎤
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Debate Competition</h4>
+        <p class="text-purple-500 text-xs">MC &amp; Moderator</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-amber-200 transition-colors">
+        📸
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Yearbook Committee</h4>
+        <p class="text-purple-500 text-xs">Photography Team</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-emerald-200 transition-colors">
+        🌱
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Environment Day</h4>
+        <p class="text-purple-500 text-xs">Campaign Coordinator</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-cyan-200 transition-colors">
+        📚
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Book Fair 2024</h4>
+        <p class="text-purple-500 text-xs">Logistics Team</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-fuchsia-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-fuchsia-200 transition-colors">
+        🎭
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Drama Performance Night</h4>
+        <p class="text-purple-500 text-xs">Stage Manager</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-xl p-4 hover-lift flex items-center gap-3 group">
+       <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-lg group-hover:bg-orange-200 transition-colors">
+        🎉
+       </div>
+       <div>
+        <h4 class="font-medium text-purple-900 text-sm">Graduation Ceremony 2024</h4>
+        <p class="text-purple-500 text-xs">Event Committee</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12 sm:mb-16"><span class="inline-block px-4 py-2 bg-white/60 backdrop-blur rounded-full text-sm font-medium text-purple-700 mb-4"> Let's connect </span>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Contact Me</h2>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-8"><!-- Contact Info -->
+      <div class="space-y-6">
+       <div class="glass-card rounded-2xl p-6 hover-lift">
+        <h3 class="font-display text-xl font-semibold text-purple-900 mb-6">Get in Touch</h3>
+        <p class="text-purple-600 mb-8">Feel free to reach out for collaborations, opportunities, or just a friendly chat. I'd love to hear from you!</p>
+        <div class="space-y-4"><a href="mailto:alyaniraaura@email.com" class="flex items-center gap-4 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors group">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+           </svg>
+          </div>
+          <div>
+           <p class="text-sm text-purple-500">Email</p>
+           <p id="contact-email-display" class="font-medium text-purple-900">alyaniraaura@email.com</p>
+          </div></a> <a href="https://wa.me/6283823290551" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors group">
+          <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 text-white" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+           </svg>
+          </div>
+          <div>
+           <p class="text-sm text-purple-500">WhatsApp</p>
+           <p id="contact-whatsapp-display" class="font-medium text-purple-900">083823290551</p>
+          </div></a> <a href="https://instagram.com/alyanrraa" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-pink-50 rounded-xl hover:bg-pink-100 transition-colors group">
+          <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 text-white" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+           </svg>
+          </div>
+          <div>
+           <p class="text-sm text-purple-500">Instagram</p>
+           <p id="contact-instagram-display" class="font-medium text-purple-900">@alyanrraa</p>
+          </div></a>
+        </div>
+       </div>
+      </div><!-- Contact Form -->
+      <div class="glass-card rounded-2xl p-6 sm:p-8 hover-lift">
+       <h3 class="font-display text-xl font-semibold text-purple-900 mb-6">Send a Message</h3>
+       <form id="contact-form" class="space-y-5">
+        <div><label for="name" class="block text-sm font-medium text-purple-700 mb-2">Your Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/50 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all placeholder-purple-300" placeholder="Enter your name">
+        </div>
+        <div><label for="email" class="block text-sm font-medium text-purple-700 mb-2">Email Address</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/50 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all placeholder-purple-300" placeholder="Enter your email">
+        </div>
+        <div><label for="subject" class="block text-sm font-medium text-purple-700 mb-2">Subject</label> <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-white/50 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all placeholder-purple-300" placeholder="What's this about?">
+        </div>
+        <div><label for="message" class="block text-sm font-medium text-purple-700 mb-2">Message</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-white/50 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all placeholder-purple-300 resize-none" placeholder="Type your message here..."></textarea>
+        </div><button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-300 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2"> <span>Send Message</span>
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+         </svg></button>
+       </form><!-- Success Message -->
+       <div id="success-message" class="hidden mt-6 p-4 bg-green-100 border border-green-300 rounded-xl text-center"><span class="text-2xl mb-2 block">✨</span>
+        <p class="text-green-700 font-medium">Thank you for your message!</p>
+        <p class="text-green-600 text-sm">I'll get back to you soon.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-purple-200/50">
+    <div class="max-w-7xl mx-auto">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+       <h3 class="font-display text-2xl font-bold text-purple-900 mb-2" id="footer-name">Alyanira Aura</h3>
+       <p class="text-purple-600 text-sm">Aspiring Social Scientist &amp; Communicator</p>
+      </div>
+      <div class="flex items-center gap-4"><a href="mailto:alyaniraaura@email.com" class="w-10 h-10 bg-white/60 backdrop-blur rounded-xl flex items-center justify-center text-purple-600 hover:bg-purple-100 hover:text-purple-700 transition-all hover:scale-110">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg></a> <a href="https://wa.me/6283823290551" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/60 backdrop-blur rounded-xl flex items-center justify-center text-purple-600 hover:bg-green-100 hover:text-green-600 transition-all hover:scale-110">
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg></a> <a href="https://instagram.com/alyanrraa" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/60 backdrop-blur rounded-xl flex items-center justify-center text-purple-600 hover:bg-pink-100 hover:text-pink-600 transition-all hover:scale-110">
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a>
+      </div>
+     </div>
+     <div class="mt-8 pt-8 border-t border-purple-200/50 text-center">
+      <p class="text-purple-500 text-sm">© Alyanira Aura – 2026. All rights reserved.</p>
+      <p class="text-purple-400 text-xs mt-2">Made with 💜 in Subang, Indonesia</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_name: 'Alyanira Aura',
+      hero_subtitle: '12th Grade of Senior High School',
+      hero_intro: 'A passionate student with a keen interest in social sciences and communication, dedicated to making a positive impact through leadership and creative endeavors.',
+      about_description: "Hi there! I'm Alyanira Aura, a dedicated 12th-grade student at SMAN 1 Subang with a deep passion for social sciences and communication. I believe in the power of connection and meaningful dialogue to create positive change in our communities. My journey has been shaped by diverse experiences in student organizations and committees, where I've developed strong leadership and interpersonal skills.",
+      contact_email: 'alyaniraaura@email.com',
+      contact_whatsapp: '083823290551',
+      contact_instagram: '@alyanrraa',
+      primary_color: '#8b5cf6',
+      secondary_color: '#a78bfa',
+      text_color: '#2d1b4e',
+      background_color: '#f5e6fa',
+      surface_color: '#ffffff',
+      font_family: 'Plus Jakarta Sans',
+      font_size: 16
+    };
+
+    let config = { ...defaultConfig };
+
+    // Element SDK initialization
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (newConfig) => {
+          config = { ...defaultConfig, ...newConfig };
+          
+          // Update hero section
+          const heroName = document.getElementById('hero-name');
+          if (heroName) heroName.textContent = config.hero_name || defaultConfig.hero_name;
+          
+          const heroSubtitle = document.getElementById('hero-subtitle');
+          if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+          
+          const heroIntro = document.getElementById('hero-intro');
+          if (heroIntro) heroIntro.textContent = config.hero_intro || defaultConfig.hero_intro;
+          
+          // Update about section
+          const aboutDesc = document.getElementById('about-description');
+          if (aboutDesc) aboutDesc.textContent = config.about_description || defaultConfig.about_description;
+          
+          // Update contact displays
+          const emailDisplay = document.getElementById('contact-email-display');
+          if (emailDisplay) emailDisplay.textContent = config.contact_email || defaultConfig.contact_email;
+          
+          const whatsappDisplay = document.getElementById('contact-whatsapp-display');
+          if (whatsappDisplay) whatsappDisplay.textContent = config.contact_whatsapp || defaultConfig.contact_whatsapp;
+          
+          const instagramDisplay = document.getElementById('contact-instagram-display');
+          if (instagramDisplay) instagramDisplay.textContent = config.contact_instagram || defaultConfig.contact_instagram;
+          
+          // Update nav and footer name
+          const navName = document.getElementById('nav-name');
+          if (navName) navName.textContent = (config.hero_name || defaultConfig.hero_name).split(' ')[0];
+          
+          const footerName = document.getElementById('footer-name');
+          if (footerName) footerName.textContent = config.hero_name || defaultConfig.hero_name;
+          
+          // Apply colors
+          const primaryColor = config.primary_color || defaultConfig.primary_color;
+          const textColor = config.text_color || defaultConfig.text_color;
+          
+          document.documentElement.style.setProperty('--primary-action', primaryColor);
+          document.documentElement.style.setProperty('--text-color', textColor);
+          
+          // Apply font
+          const fontFamily = config.font_family || defaultConfig.font_family;
+          document.body.style.fontFamily = `${fontFamily}, sans-serif`;
+          
+          // Apply font size scaling
+          const baseFontSize = config.font_size || defaultConfig.font_size;
+          document.documentElement.style.fontSize = `${baseFontSize}px`;
+        },
+        mapToCapabilities: (cfg) => ({
+          recolorables: [
+            {
+              get: () => cfg.background_color || defaultConfig.background_color,
+              set: (v) => { cfg.background_color = v; window.elementSdk.setConfig({ background_color: v }); }
+            },
+            {
+              get: () => cfg.surface_color || defaultConfig.surface_color,
+              set: (v) => { cfg.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); }
+            },
+            {
+              get: () => cfg.text_color || defaultConfig.text_color,
+              set: (v) => { cfg.text_color = v; window.elementSdk.setConfig({ text_color: v }); }
+            },
+            {
+              get: () => cfg.primary_color || defaultConfig.primary_color,
+              set: (v) => { cfg.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); }
+            },
+            {
+              get: () => cfg.secondary_color || defaultConfig.secondary_color,
+              set: (v) => { cfg.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => cfg.font_family || defaultConfig.font_family,
+            set: (v) => { cfg.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+          },
+          fontSizeable: {
+            get: () => cfg.font_size || defaultConfig.font_size,
+            set: (v) => { cfg.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+          }
+        }),
+        mapToEditPanelValues: (cfg) => new Map([
+          ['hero_name', cfg.hero_name || defaultConfig.hero_name],
+          ['hero_subtitle', cfg.hero_subtitle || defaultConfig.hero_subtitle],
+          ['hero_intro', cfg.hero_intro || defaultConfig.hero_intro],
+          ['about_description', cfg.about_description || defaultConfig.about_description],
+          ['contact_email', cfg.contact_email || defaultConfig.contact_email],
+          ['contact_whatsapp', cfg.contact_whatsapp || defaultConfig.contact_whatsapp],
+          ['contact_instagram', cfg.contact_instagram || defaultConfig.contact_instagram]
+        ])
+      });
+    }
+
+    // Mobile menu functionality
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Skill progress bar animation
+    const animateSkills = () => {
+      const skillBars = document.querySelectorAll('.progress-bar');
+      skillBars.forEach(bar => {
+        const targetWidth = bar.dataset.width;
+        bar.style.width = targetWidth;
+      });
+    };
+
+    // Intersection Observer for skill animations
+    const skillsSection = document.getElementById('skills');
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(animateSkills, 300);
+          skillsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    skillsObserver.observe(skillsSection);
+
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Simulate form submission
+      contactForm.style.display = 'none';
+      successMessage.classList.remove('hidden');
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        contactForm.reset();
+        contactForm.style.display = 'block';
+        successMessage.classList.add('hidden');
+      }, 5000);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add fade-in animation to sections on scroll
+    const sections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c98b5fa10fc3fc8',t:'MTc3MDM2MDYwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
